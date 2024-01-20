@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Route untuk halaman utama
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile('index.html', { root: './' });
 });
 
 app.get('/youtube', async (req, res) => {
