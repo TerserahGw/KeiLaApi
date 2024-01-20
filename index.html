@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeiLa - API</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      text-align: center;
+      margin: 20vh auto;
+      max-width: 400px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #4caf50;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>KeiLa - API</h1>
+  <p>Gunakan API kami untuk mendapatkan informasi. Pilih layanan di bawah ini:</p>
+  <table>
+    <tr>
+      <th>Layanan</th>
+      <th>URL</th>
+    </tr>
+    <tr>
+      <td>YouTube</td>
+      <td><a href="/youtube">/youtube</a></td>
+    </tr>
+    <tr>
+      <td>TikTok</td>
+      <td><a href="/tiktok">/tiktok</a></td>
+    </tr>
+  </table>
+  <ul>
+    <li>Ekstrak informasi dengan mudah</li>
+    <li>Dukungan untuk berbagai format URL</li>
+    <li>Integrasi cepat dan sederhana</li>
+  </ul>
+  <form action="/process" method="get">
+    <label for="url">URL:</label>
+    <input type="text" id="url" name="q" required>
+    <button type="submit">Proses</button>
+  </form>
+</body>
+</html>
