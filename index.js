@@ -40,6 +40,21 @@ app.get('/tiktok', async (req, res) => {
   }
 });
 
+app.get('/pixiv', async (req, res) => {
+  const pixivQuery = req.query.q;
+
+  if (!pixivQuery) {
+    return res.status(400).json({ error: 'Invalid or Missing Query' });
+  }
+
+  try {
+    const result = await pixiv(pixivQuery);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
