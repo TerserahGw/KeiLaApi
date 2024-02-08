@@ -16,7 +16,7 @@ export const pixiv = async (query) => {
         });
 
         const result = [];
-        const popularWorks = data.body.popularWorks;
+        const popularWorks = data.body.illusts;
 
         if (popularWorks && popularWorks.length > 0) {
           popularWorks.forEach(work => {
