@@ -1,6 +1,7 @@
 import express from 'express';
 import { yt } from './scrape/y2mate.js';
 import { tiktok } from './scrape/tiktok.js';
+import { pixiv } from './scrape/pixiv.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
