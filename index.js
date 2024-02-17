@@ -2,6 +2,7 @@ import express from 'express';
 import { yt } from './scrape/y2mate.js';
 import { tiktok } from './scrape/tiktok.js';
 import { pixiv } from './scrape/pixiv.js';
+import { play } from './scrape/play.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,21 @@ app.get('/youtube', async (req, res) => {
 
   try {
     const result = await yt(youtubeUrl);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/play', async (req, res) => {
+  const queryYt = req.query.q;
+
+  if (!queryYt) {
+    return res.status(400).json({ error: 'Invalid or missing query' });
+  }
+
+  try {
+    const result = await play(queryYt);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
