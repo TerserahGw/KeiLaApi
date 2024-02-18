@@ -21,7 +21,9 @@ app.get('/youtube', async (req, res) => {
 
   try {
     const result = await yt(youtubeUrl);
-    res.json(result);
+    const formattedResult = JSON.stringify(result, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(formattedResult);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -36,7 +38,9 @@ app.get('/play', async (req, res) => {
 
   try {
     const result = await play(queryYt);
-    res.json(result);
+    const formattedResult = JSON.stringify(result, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(formattedResult);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -51,7 +55,9 @@ app.get('/tiktok', async (req, res) => {
 
   try {
     const result = await tiktok(tiktokUrl);
-    res.json(result);
+    const formattedResult = JSON.stringify(result, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(formattedResult);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -66,7 +72,9 @@ app.get('/pixiv', async (req, res) => {
 
   try {
     const result = await pixiv(pixivQuery);
-    res.json(result);
+    const formattedResult = JSON.stringify(result, null, 2);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(formattedResult);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
