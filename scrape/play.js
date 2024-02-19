@@ -133,25 +133,27 @@ async function play(query, server = 'id') {
     const convertV2Mp3Result = await convertV2(url, analyzeV2Result.keyM4A);
 
     return {
-      status: true,
-      pembuat: 'KeiLaSenpai',
-      judul: title,
-      videoUrl: url,
-      penonton: views,
-      waktu: timestamp,
-      tanggal: ago,
-      channel: authorName,
-      channelUrl: authorUrl,
-      dekripsi: description,
-      hasil: {
-        cover: thumbnail,
-        video: convertV2Mp4Result.dlink,
-        music: convertV2Mp3Result.dlink,
+      status: 200,
+      creator: 'KeiLaSenpai',
+      result: {
+        title: title,
+        url: url,
+        views: views,
+        duration: timestamp,
+        date: ago,
+        author: authorName,
+        channel: authorUrl,
+        description: description,
+        mediaUrl: {
+          thumb: thumbnail,
+          video: convertV2Mp4Result.dlink,
+          audio: convertV2Mp3Result.dlink,
+        },
       },
     };
   } catch (error) {
     console.error('Error during processing:', error);
-    return { status: false, error: 'Terjadi kesalahan: ' + error.message };
+    return { status: 404, error: 'Terjadi kesalahan: ' + error.message };
   }
 }
 
