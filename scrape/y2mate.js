@@ -184,14 +184,16 @@ async function yt(url, server = 'id') {
 
 
     return {
-      status: true,
+      status: 200,
       creator: 'KeiLaSenpai',
-      title: analyzeV2Result.title,
-      thumbnail: analyzeResult.thumbnail,
-      videoUrl: analyzeV2Result.videoUrl,
       result: {
-        video: convertV2Mp4Result.dlink,
-        audio: convertV2Mp3Result.dlink,
+        title: analyzeV2Result.title,
+        thumbnail: analyzeResult.thumbnail,
+        videoUrl: analyzeV2Result.videoUrl,
+        mediaUrl: {
+          video: convertV2Mp4Result.dlink,
+          audio: convertV2Mp3Result.dlink,
+        }
       },
     };
   } catch (error) {
