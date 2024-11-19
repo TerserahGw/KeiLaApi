@@ -28,6 +28,7 @@ async function yt(url) {
         },
         duration: videoData.duration,
         views: videoData.views,
+        up: videoData.upload,
         desc: videoData.description || 'Tidak disebutkan',
       },
     };
