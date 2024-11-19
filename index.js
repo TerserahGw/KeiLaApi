@@ -1,8 +1,8 @@
-import express from 'express';
-import { yt } from './scrape/y2mate.js';
-import { tiktok } from './scrape/tiktok.js';
-import { pixiv } from './scrape/pixiv.js';
-import { play } from './scrape/play.js';
+const express = require('express');
+const { yt } = require('./scrape/y2mate.js');
+const { tiktok } = require('./scrape/tiktok.js');
+const { pixiv } = require('./scrape/pixiv.js');
+const { play } = require('./scrape/play.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
