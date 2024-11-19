@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "Api",
   "version": "1.0.0",
   "description": "",
   "type": "commonjs",
@@ -24,6 +24,6 @@
     "ytdl-core": "^4.11.2",
     "zod": "^3.20.2",
     "ruhend-scraper": "^8.0.3",
-    "path": "^0.12.7",
+    "path": "^0.12.7"
   }
 }
