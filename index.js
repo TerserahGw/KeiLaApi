@@ -1,8 +1,8 @@
 const express = require('express');
 const { yt } = require('./scrape/y2mate.js');
-const { tiktok } = require('./scrape/tiktok.js');
+//const { tiktok } = require('./scrape/tiktok.js');
 const { pixiv } = require('./scrape/pixiv.js');
-const { play } = require('./scrape/play.js');
+//const { play } = require('./scrape/play.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,7 +29,7 @@ app.get('/ytdl', async (req, res) => {
   }
 });
 
-app.get('/play', async (req, res) => {
+/*app.get('/play', async (req, res) => {
   const queryYt = req.query.q;
 
   if (!queryYt) {
@@ -61,7 +61,7 @@ app.get('/tiktok', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
-});
+});*/
 
 app.get('/pixiv', async (req, res) => {
   const pixivQuery = req.query.q;
