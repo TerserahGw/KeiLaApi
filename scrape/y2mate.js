@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { ytmp3, ytmp4 } from 'ruhend-scraper';
 
 export const yt = async (url) => {
