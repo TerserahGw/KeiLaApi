@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const tar = require('tar');
 const got = require('got');
 const ytdl = require('ytdl-core');
-const yts = require('yt-search');
+const { ytsearch } = require('yt-search');
 const { z } = require('zod');
 const { ytmp3, ytmp4 } = require('ruhend-scraper');
 
