@@ -1,6 +1,6 @@
 const { ytmp3, ytmp4 } = require('ruhend-scraper');
 
-async function yt(url) {
+export const yt = async (url) {
   try {
     const audioData = await ytmp3(url);
     const videoData = await ytmp4(url);
@@ -28,5 +28,3 @@ async function yt(url) {
     throw new Error('Terjadi kesalahan: ' + error.message);
   }
 }
-
-export = { yt };
