@@ -3,11 +3,13 @@ const { yt } = require('./scrape/y2mate.js');
 //const { tiktok } = require('./scrape/tiktok.js');
 const { pixiv } = require('./scrape/pixiv.js');
 //const { play } = require('./scrape/play.js');
+const timeout = require('connect-timeout');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Route untuk halaman utama
+app.use(timeout('1m'));
+
 app.get('/', (req, res) => {
   res.sendFile('index.html', { root: './' });
 });
@@ -21,9 +23,9 @@ app.get('/ytdl', async (req, res) => {
 
   try {
     const result = await yt(youtubeUrl);
-    const formattedResult = JSON.stringify(result, null, 2);
     res.setHeader('Content-Type', 'application/json');
-    res.end(formattedResult);
+    res.write(JSON.stringify(result, null, 2));
+    res.end();
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -80,6 +82,15 @@ app.get('/pixiv', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.use((err, req, res, next) => {
+  if (err.code === 'ETIMEDOUT') {
+    res.status(503).json({ error: 'Request Timeout' });
+  } else {
+    next(err);
+  }
+});
+
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+server.timeout = 60000;
