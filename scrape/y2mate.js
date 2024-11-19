@@ -2,6 +2,7 @@ const axios = require('axios');
 const fetch = require('node-fetch');
 const { ytmp3, ytmp4 } = require('ruhend-scraper');
 const cheerio = require('cheerio');
+const got = require('got');
 
 async function yt(url) {
   try {
