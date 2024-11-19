@@ -29,4 +29,4 @@ async function yt(url) {
   }
 }
 
-module.exports = { yt };
+export = { yt };
