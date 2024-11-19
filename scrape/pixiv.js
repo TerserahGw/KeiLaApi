@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require("axios");
 
-export const pixiv = async (query) => {
+const pixiv = async (query) => {
   try {
     const headers = {
       'Cookie': 'first_visit_datetime=2022-06-13+21%3A32%3A20; p_ab_id=2; p_ab_id_2=2; p_ab_d_id=1302641430; yuid_b=NwWBhkg;webp_available=1;PHPSESSID=038h1e93584nbi0cmk4ecbj0feoi3hi6; cc1=2023-12-26%2010%3A51%3A10;_cf_bm=ADzxrZZZD5CSkidgBgz67hd7LNVfIfcsulkNfUjPoC0-1703555470-1-AS/wlRn1Y006HTh3gmmuhXRPWB5y3fLZ/pSjPk1jVuVmNfle0efjmZVBqLe+gRfzlg8b7bZeCJk+9WIOAI5cLFhh+zbULqZT21b/5 LH3ne9F;cf_clearance=.4v0UhELeGS1Zj2CkSWkjHZI3G6vFqj4qOQXeZCWFh0-1703555479-0-2-6367f888.f80ea3e1.61e7cc40- 0.2.1703555479',
@@ -34,7 +34,7 @@ export const pixiv = async (query) => {
           attempt++;
           if (attempt < 5) {
             console.log('Array kosong, menjalankan ulang...');
-            fetchData();
+            return await fetchData();  // Gunakan await untuk memastikan rekursi selesai
           } else {
             return { status: false, author: 'KeiLaSenpai', result: ["Maaf Yang Anda Cari Tidak Dapat Ditemukan Silahkan Masukan Query Lain!"] };
           }
@@ -51,3 +51,5 @@ export const pixiv = async (query) => {
     throw new Error("Error fetching Pixiv data");
   }
 };
+
+module.exports = { pixiv };  // Ekspor dengan module.exports
