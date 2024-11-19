@@ -19,17 +19,16 @@ async function yt(url) {
       creator: 'KeiLaSenpai',
       result: {
         title: audioData.title,
+        author: audioData.author,
         thumbnail: audioData.thumbnail,
-        videoUrl: url,
-        mediaUrl: {
+        ytUrl: url,
+        url: {
           video: videoData.video,
           audio: audioData.audio,
         },
-        size: {
-          video: videoData.size || 'Tidak tersedia',
-          audio: audioData.size || 'Tidak tersedia',
-        },
-        quality: videoData.quality || 'Tidak disebutkan',
+        duration: videoData.duration,
+        views: videoData.views,
+        desc: videoData.description || 'Tidak disebutkan',
       },
     };
   } catch (error) {
