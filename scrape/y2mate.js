@@ -1,8 +1,6 @@
-import axios from "axios";
-import fetch from 'node-fetch';
-import { ytmp3, ytmp4 } from 'ruhend-scraper';
+const { ytmp3, ytmp4 } = require('ruhend-scraper');
 
-export const yt = async (url) => {
+async function yt(url) {
   try {
     const audioData = await ytmp3(url);
     const videoData = await ytmp4(url);
@@ -29,4 +27,6 @@ export const yt = async (url) => {
     console.error('Terjadi kesalahan:', error.message);
     throw new Error('Terjadi kesalahan: ' + error.message);
   }
-};
+}
+
+module.exports = { yt };
