@@ -1,6 +1,6 @@
-const { ytmp3, ytmp4 } = require('ruhend-scraper');
+import { ytmp3, ytmp4 } from 'ruhend-scraper';
 
-export const yt = async (url) {
+export const yt = async (url) => {
   try {
     const audioData = await ytmp3(url);
     const videoData = await ytmp4(url);
@@ -27,4 +27,4 @@ export const yt = async (url) {
     console.error('Terjadi kesalahan:', error.message);
     throw new Error('Terjadi kesalahan: ' + error.message);
   }
-}
+};
