@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', { root: './' });
 });
 
-app.get('/youtube', async (req, res) => {
+app.get('/yt', async (req, res) => {
   const youtubeUrl = req.query.q;
 
   if (!youtubeUrl) {
